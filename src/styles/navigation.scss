@@ -1,0 +1,48 @@
+.nav-bar{
+    display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+    background: linear-gradient(180deg, #BB1E1E 71.29%, #B21919 99.95%);
+    align-items: center;
+    .nav-text{
+        color: white;
+        display: flex;
+        align-items: center;
+        font-family: 'Inter';
+        font-weight: bold;
+        .first-text{
+            font-size: 16px;
+            letter-spacing: -0.14px;
+            margin-right: 46px;
+        }
+        .second-text{
+            font-size: 14px;
+            letter-spacing: -0.12px;
+        }
+    }
+    .nav-buttons{
+        display: flex;
+        .first-button{
+            width: 69px;
+            height: 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #1D1D1B;
+            background-color: white;
+            margin: 9px 24px 11px 0;
+            font-family: 'Inter';
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .second-button{
+            background-color: inherit;
+            border: none;
+            color: white;
+            font-family: 'Inter';
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}

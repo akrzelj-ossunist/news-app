@@ -1,0 +1,15 @@
+.side-nav{
+    cursor: pointer;
+    margin-right: 24px;
+    .prop{
+        text-decoration: none;
+        width: 63px;
+        height: 63px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: "#1D1D1B";
+        opacity: 0.5;
+    }
+}

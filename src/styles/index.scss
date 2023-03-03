@@ -1,0 +1,15 @@
+body{
+    margin: 0;
+    background: #F2F2F2;
+}
+.layout{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.content{
+    display: flex;
+    width: 1095px;
+    margin-top: 24px;
+    position: relative;
+}   
