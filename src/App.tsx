@@ -3,20 +3,25 @@ import Header from "./components/Header";
 import SideNav from "./components/SideNav";
 import News from "./components/News";
 import { useState } from "react";
-import { useDebounce } from "usehooks-ts";
 
 const Home: React.FC = () => {
   const [news, setNews] = useState<string>("");
-  const debouncedNews = useDebounce(news, 500);
+  const [showDropNav, setShowDropNav] = useState(false);
 
   return (
-    <>
-      <Header setNews={setNews} />
+    <div style={showDropNav ? { overflow: "hidden" } : {}}>
+      <Header
+        setNews={setNews}
+        showDropNav={showDropNav}
+        setShowDropNav={setShowDropNav}
+      />
       <div className="content">
-        <SideNav />
-        <News searchValue={debouncedNews} />
+        <div className="hide-phone">
+          <SideNav />
+        </div>
+        <News searchValue={news} />
       </div>
-    </>
+    </div>
   );
 };
 

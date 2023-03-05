@@ -1,47 +1,74 @@
-import "../styles/SideNav.scss";
-import home from "../assets/Home.svg";
-import business from "../assets/Business.svg";
-import news from "../assets/News.svg";
-import health from "../assets/Health.svg";
-import tech from "../assets/TV Guide.svg";
-import science from "../assets/Science.svg";
-import sports from "../assets/Sports.svg";
-import { Link } from "react-router-dom";
+import "../styles/sideNav.scss";
+import { Link, useLocation } from "react-router-dom";
+import HomeIcon from "../assets/HomeIcon";
+import BusinessIcon from "../assets/BusinessIcon";
+import GeneralIcon from "../assets/GeneralIcon";
+import HealthIcon from "../assets/HealthIcon";
+import ScienceIcon from "../assets/ScienceIcon";
+import SportsIcon from "../assets/SportsIcon";
+import TechIcon from "../assets/TechIcon";
 
 const SideNav: React.FC = () => {
+  const location = useLocation();
   const sideNavProps = [
     {
-      image: home,
+      image: (
+        <HomeIcon fill={location.pathname === "/" ? "#BB1E1E" : "#1D1D1B"} />
+      ),
       name: "Home",
       href: "/",
     },
     {
-      image: news,
+      image: (
+        <GeneralIcon
+          fill={location.pathname === "/general" ? "#BB1E1E" : "#1D1D1B"}
+        />
+      ),
       name: "General",
       href: "/general",
     },
     {
-      image: business,
+      image: (
+        <BusinessIcon
+          fill={location.pathname === "/business" ? "#BB1E1E" : "#1D1D1B"}
+        />
+      ),
       name: "Business",
       href: "/business",
     },
     {
-      image: health,
+      image: (
+        <HealthIcon
+          fill={location.pathname === "/health" ? "#BB1E1E" : "#1D1D1B"}
+        />
+      ),
       name: "Health",
       href: "/health",
     },
     {
-      image: science,
+      image: (
+        <ScienceIcon
+          fill={location.pathname === "/science" ? "#BB1E1E" : "#1D1D1B"}
+        />
+      ),
       name: "Science",
       href: "/science",
     },
     {
-      image: sports,
+      image: (
+        <SportsIcon
+          fill={location.pathname === "/sports" ? "#BB1E1E" : "#1D1D1B"}
+        />
+      ),
       name: "Sports",
       href: "/sports",
     },
     {
-      image: tech,
+      image: (
+        <TechIcon
+          fill={location.pathname === "/technology" ? "#BB1E1E" : "#1D1D1B"}
+        />
+      ),
       name: "Technology",
       href: "/technology",
     },
@@ -50,19 +77,33 @@ const SideNav: React.FC = () => {
   return (
     <div className="side-nav">
       {sideNavProps.map((prop) => {
-        return (
-          <Link to={prop.href} key={prop.name} className="prop">
-            <img src={prop.image} />
-            <label
-              style={{
-                fontWeight: "600",
-                fontFamily: "Inter",
-                fontSize: "10px",
-                marginTop: "4px",
-                cursor: "pointer",
+        const design =
+          location.pathname === prop.href
+            ? {
+                color: "#BB1E1E",
+                background: "white",
+                opacity: 1,
+                boxShadow: "0px 6px 36px rgba(0, 0, 0, 0.16)",
+              }
+            : {
                 color: "#1D1D1B",
-              }}
-            >
+                background: "inherit",
+                opacity: 0.6,
+                boxShadow: "none",
+              };
+        return (
+          <Link
+            to={prop.href}
+            key={prop.name}
+            className="prop"
+            style={{
+              background: design.background,
+              opacity: design.opacity,
+              boxShadow: design.boxShadow,
+            }}
+          >
+            {prop.image}
+            <label style={{ color: design.color, opacity: design.opacity }}>
               {prop.name}
             </label>
           </Link>

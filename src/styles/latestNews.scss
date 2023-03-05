@@ -1,10 +1,92 @@
 .latest-news{
     position: absolute;
-    right: 0;
-    top: 0;
+    top: 40px;
+    right: 15px;
     background: white;
-    width: 321px;
-    height: 529px;
+    width: 291px;
+    height: 500px;
     border-radius: 8px;
     overflow-y: auto;
+    overflow-x: hidden;
+    padding: 15px;
+    z-index: 5;
+    .circle{
+        position: relative;
+        display: flex;
+        margin-right: 10px;
+        .large-circle{
+            background-color: #BB1E1E;
+            animation-name: circle;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+        }
+        .middle-circle{
+            background-color: #BB1E1E;
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+    }
+    .latest-article{
+        padding: 13px 0 13px 0;
+        border-bottom: 1px solid #F4F5F8;
+        p{
+            font-family: 'Inter';
+            font-weight: 500;
+            font-size: 16px;
+            letter-spacing: -0.11px;
+            margin: 0;
+        }
+        label{
+            font-family: 'Inter';
+            font-weight: 700;
+            font-size: 10px;
+            color: #1E71BB;
+        }
+    }
 }
+.all-news{
+    height: 51px;
+    border-top: 1px solid #F4F5F8;
+    display: flex;
+    align-items: center;
+    background: white;
+    position: absolute;
+    width: 305px;
+    right: 30px;
+    top: 518px;
+    z-index: 10;
+    border-radius: 0 0 10px 10px;
+    p{
+        cursor: pointer;
+        font-family: 'Inter';
+        font-weight: 500;
+        font-size: 14px;
+        color: #1E71BB;
+        margin-left: 14px;
+    }
+}
+
+@keyframes circle {
+    0% {opacity: 0.24;}
+    50% {opacity: 0.54;}
+    100% {opacity: 0.24;}
+  }
+
+  @media (max-width: "375px") {
+    .latest-news{
+        position: static;
+        margin: 16px 0 74px 0;
+    }
+    .all-news{
+        width: 315px;
+        top: 534px;
+        left: 40px;
+    }
+  }

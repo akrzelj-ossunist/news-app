@@ -13,3 +13,12 @@ body{
     margin-top: 24px;
     position: relative;
 }   
+@media (max-width: 375px) {
+    .content{
+        width: auto;
+        flex-direction: column;
+    }
+    .hide-phone{
+        display: none;
+    }
+  }
