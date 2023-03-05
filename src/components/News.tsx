@@ -3,13 +3,25 @@ import { useLocation } from "react-router-dom";
 import "../styles/news.scss";
 import useGetNewsQuery from "../services/getNews";
 import PrintNews from "./PrintNews";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import useGetNewsByTitleQuery from "../services/getNewsByTitle";
 
-const News: React.FC<{ searchValue: string }> = ({ searchValue: search }) => {
-  const location = useLocation();
-  const category = location.pathname;
+const News: React.FC<{
+  searchValue: string;
+  setSearchValue: (val: string) => void;
+}> = ({ searchValue: search, setSearchValue }) => {
+  const category = useLocation().pathname;
   const [panel, setPanel] = useState("featured");
-  const { data: newsData, isLoading } = useGetNewsQuery(search, category);
+  const [favNews, setFavNews] = useState<any[]>([]);
+
+  useEffect(() => {
+    setSearchValue("aeiou");
+  }, [category]);
+
+  const { data: newsData, isLoading } = useGetNewsQuery(category);
+  const { data: newsByTitleData, isLoading: titleLoading } =
+    useGetNewsByTitleQuery(search || "aeiou");
+
   const activeDesign = {
     background: "rgba(187, 30, 30, 0.1)",
     color: "#BB1E1E",
@@ -34,17 +46,33 @@ const News: React.FC<{ searchValue: string }> = ({ searchValue: search }) => {
             Latest
           </p>
         </div>
+
         <div className="display-desktop">
           <LatestNews />
-          {isLoading ? (
+          {isLoading || titleLoading ? (
             <p>Loading...</p>
-          ) : (
+          ) : newsByTitleData.totalResults === 0 ? (
             newsData.articles.map((article: any, index: any) => (
               <PrintNews
                 key={index}
-                author={article.author}
+                author={article.source.name}
                 title={article.title}
                 image={article.urlToImage}
+                index={index}
+                setFavNews={setFavNews}
+                favNews={favNews}
+              />
+            ))
+          ) : (
+            newsByTitleData.articles.map((article: any, index: any) => (
+              <PrintNews
+                key={index}
+                author={article.source.name}
+                title={article.title}
+                image={article.urlToImage}
+                index={index}
+                setFavNews={setFavNews}
+                favNews={favNews}
               />
             ))
           )}
@@ -60,9 +88,11 @@ const News: React.FC<{ searchValue: string }> = ({ searchValue: search }) => {
           newsData.articles.map((article: any, index: any) => (
             <PrintNews
               key={index}
-              author={article.author}
+              author={article.source.name}
               title={article.title}
               image={article.urlToImage}
+              setFavNews={setFavNews}
+              favNews={favNews}
             />
           ))
         )}

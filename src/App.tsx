@@ -19,7 +19,7 @@ const Home: React.FC = () => {
         <div className="hide-phone">
           <SideNav />
         </div>
-        <News searchValue={news} />
+        <News searchValue={news} setSearchValue={setNews} />
       </div>
     </div>
   );

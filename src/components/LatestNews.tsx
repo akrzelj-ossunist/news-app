@@ -13,9 +13,6 @@ const LatestNews: React.FC = () => {
 
   return (
     <>
-      <div className="all-news">
-        <p>See all news</p>
-      </div>
       <div className="latest-news">
         <div
           className="latest-article"
@@ -32,15 +29,20 @@ const LatestNews: React.FC = () => {
           </div>
           <p>Latest news</p>
         </div>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <PrintLatestArticle
-            latestNewsData={concatArrayOfArray(latestNewsData?.pages!)}
-            hasNextPage={hasNextPage}
-            fetchNextPage={fetchNextPage}
-          />
-        )}
+        <div className="latest-articles">
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : (
+            <PrintLatestArticle
+              latestNewsData={concatArrayOfArray(latestNewsData?.pages!)}
+              hasNextPage={hasNextPage}
+              fetchNextPage={fetchNextPage}
+            />
+          )}
+        </div>
+        <div className="all-news">
+          <p>See all news</p>
+        </div>
       </div>
     </>
   );

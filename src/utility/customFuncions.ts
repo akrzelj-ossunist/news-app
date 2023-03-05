@@ -4,3 +4,7 @@ export const concatArrayOfArray = (arr: any[]): any[] => {
     return newArray;
   };
   
+  export const isInArray = (arr: any[], el: any): boolean => {
+    arr.map(e => { if(JSON.stringify(e) === JSON.stringify(el)) return true })
+    return false
+  }
