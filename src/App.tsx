@@ -5,21 +5,16 @@ import News from "./components/News";
 import { useState } from "react";
 
 const Home: React.FC = () => {
-  const [news, setNews] = useState<string>("");
   const [showDropNav, setShowDropNav] = useState(false);
 
   return (
     <div style={showDropNav ? { overflow: "hidden" } : {}}>
-      <Header
-        setNews={setNews}
-        showDropNav={showDropNav}
-        setShowDropNav={setShowDropNav}
-      />
+      <Header showDropNav={showDropNav} setShowDropNav={setShowDropNav} />
       <div className="content">
         <div className="hide-phone">
           <SideNav />
         </div>
-        <News searchValue={news} setSearchValue={setNews} />
+        <News />
       </div>
     </div>
   );

@@ -7,10 +7,20 @@ import HealthIcon from "../assets/HealthIcon";
 import ScienceIcon from "../assets/ScienceIcon";
 import SportsIcon from "../assets/SportsIcon";
 import TechIcon from "../assets/TechIcon";
+import { IconUncheckedFavorite } from "../assets/FavoriteIcon";
 
 const SideNav: React.FC = () => {
   const location = useLocation();
   const sideNavProps = [
+    {
+      image: (
+        <IconUncheckedFavorite
+          fill={location.pathname === "/favorites" ? "#BB1E1E" : "#1D1D1B"}
+        />
+      ),
+      name: "Favorites",
+      href: "/favorites",
+    },
     {
       image: (
         <HomeIcon fill={location.pathname === "/" ? "#BB1E1E" : "#1D1D1B"} />

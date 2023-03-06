@@ -7,7 +7,8 @@ const getNewsByTitle = async (search: string | null) => {
     const resp = await axios.get(link, {
       params: {
         // apiKey: "314765f8b0484b149fe5db37c9bbe427",
-        apiKey: "8f1ce794e3d54f89a15d31141272d77d",
+        // apiKey: "8f1ce794e3d54f89a15d31141272d77d",
+        apiKey: "22a65062de4c4bc88f35c9571d398138",
         qInTitle: search,
       },
     });

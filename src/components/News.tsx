@@ -3,24 +3,20 @@ import { useLocation } from "react-router-dom";
 import "../styles/news.scss";
 import useGetNewsQuery from "../services/getNews";
 import PrintNews from "./PrintNews";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useGetNewsByTitleQuery from "../services/getNewsByTitle";
+import PrintFavorites from "./PrintFavorites";
 
-const News: React.FC<{
-  searchValue: string;
-  setSearchValue: (val: string) => void;
-}> = ({ searchValue: search, setSearchValue }) => {
+const News: React.FC = () => {
   const category = useLocation().pathname;
+  const search = useLocation().search;
+
   const [panel, setPanel] = useState("featured");
   const [favNews, setFavNews] = useState<any[]>([]);
 
-  useEffect(() => {
-    setSearchValue("aeiou");
-  }, [category]);
-
   const { data: newsData, isLoading } = useGetNewsQuery(category);
   const { data: newsByTitleData, isLoading: titleLoading } =
-    useGetNewsByTitleQuery(search || "aeiou");
+    useGetNewsByTitleQuery(search.substring(search.indexOf("=") + 1) || "đ");
 
   const activeDesign = {
     background: "rgba(187, 30, 30, 0.1)",
@@ -28,6 +24,7 @@ const News: React.FC<{
     padding: "10px 16px 10px 16px",
     borderRadius: "20px",
   };
+
   return (
     <>
       <div className="news-content">
@@ -49,7 +46,9 @@ const News: React.FC<{
 
         <div className="display-desktop">
           <LatestNews />
-          {isLoading || titleLoading ? (
+          {category === "/favorites" ? (
+            <PrintFavorites favorites={favNews} setFavNews={setFavNews} />
+          ) : isLoading || titleLoading ? (
             <p>Loading...</p>
           ) : newsByTitleData.totalResults === 0 ? (
             newsData.articles.map((article: any, index: any) => (
@@ -82,10 +81,23 @@ const News: React.FC<{
       <div className="display-phone">
         {panel === "latest" ? (
           <LatestNews />
-        ) : isLoading ? (
+        ) : category === "/favorites" ? (
+          <PrintFavorites favorites={favNews} setFavNews={setFavNews} />
+        ) : isLoading || titleLoading ? (
           <p>Loading...</p>
-        ) : (
+        ) : newsByTitleData.totalResults === 0 ? (
           newsData.articles.map((article: any, index: any) => (
+            <PrintNews
+              key={index}
+              author={article.source.name}
+              title={article.title}
+              image={article.urlToImage}
+              setFavNews={setFavNews}
+              favNews={favNews}
+            />
+          ))
+        ) : (
+          newsByTitleData.articles.map((article: any, index: any) => (
             <PrintNews
               key={index}
               author={article.source.name}

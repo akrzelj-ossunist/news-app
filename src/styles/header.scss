@@ -40,20 +40,28 @@
         input:focus{
             outline: none;
         }
-        button{
-            cursor: pointer;
-            position: absolute;
-            right: 0;
-            margin: 5px;
-            width: 95px;
-            height: 40px;
-            border-radius: 6px;
-            border: none;
-            background: #BB1E1E;
-            color: white;
-        }
     }
 }
+.search-button{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    margin: 5px;
+    width: 95px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+    background: #BB1E1E;
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 15px;
+    font-family: "Inter";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 375px) {
     .header {
       width: 375px;
@@ -76,9 +84,6 @@
         .search-icon{
             margin-top: 7px;
         }
-      }
-      button{
-        display: none;
       }
     }
   }

@@ -5,12 +5,12 @@ import HamIcon from "../assets/HamIcon";
 import SideNav from "./SideNav";
 import ExitIcon from "../assets/ExitIcon";
 import "../styles/dropNav.scss";
+import { Link } from "react-router-dom";
 
 const Header: React.FC<{
-  setNews: (val: string) => void;
   showDropNav: boolean;
   setShowDropNav: (val: boolean) => void;
-}> = ({ setNews, showDropNav, setShowDropNav }) => {
+}> = ({ showDropNav, setShowDropNav }) => {
   const [search, setSearch] = useState("");
 
   return (
@@ -30,11 +30,14 @@ const Header: React.FC<{
             <SearchIcon />
           </div>
           <input
+            value={search}
             onChange={(el) => setSearch(el.target.value)}
             type="text"
             placeholder="Search news"
           />
-          <button onClick={() => setNews(search)}>SEARCH</button>
+          <Link to={`/?search=${search}`} className="search-button">
+            SEARCH
+          </Link>
         </div>
       </div>
 
@@ -50,9 +53,23 @@ const Header: React.FC<{
           <div className="search-icon">
             <SearchIcon />
           </div>
-          <input type="text" placeholder="Search news" />
+          <input
+            type="text"
+            value={search}
+            placeholder="Search news"
+            onChange={(el) => setSearch(el.target.value)}
+          />
+          <Link
+            to={`/?search=${search}`}
+            className="search-button"
+            onClick={() => setShowDropNav(false)}
+          >
+            SEARCH
+          </Link>
         </div>
-        <SideNav />
+        <div onClick={() => setShowDropNav(false)}>
+          <SideNav />
+        </div>
         <div className="exit-icon" onClick={() => setShowDropNav(false)}>
           <ExitIcon />
         </div>

@@ -88,12 +88,14 @@
 
   @media (max-width: "375px") {
     .latest-news{
-        position: static;
+        position: relative;
+        top: 0;
+        left: 0;
         margin: 16px 0 74px 0;
     }
     .all-news{
-        width: 315px;
-        top: 534px;
-        left: 40px;
+        width: 100%;
+        bottom: 0;
+        left: 15px;
     }
   }
