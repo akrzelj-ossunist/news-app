@@ -2,7 +2,7 @@
 
 This is a simple news app where you can see the top news and latest news from all around the world.
 Also, you can filter news by categories and article names.
-Application is built using React.js, SCSS, Typescript, and libraries like react-query.
+Application is built using React.js, SASS, Typescript, and libraries like react-query, react router.
 
 ## Getting started
 
@@ -22,6 +22,9 @@ Prerequisite: Node Package Manager (npm) download can be found <a href="https://
 
 <a href="https://react-query-v3.tanstack.com/overview">React-query</a>
 -Used for easier fetching data and cleaner code.
+
+<a href="https://reactrouter.com/en/main">React-router</a>
+-Used for routing through pages.
 
 <a href="https://usehooks-ts.com/react-hook/use-intersection-observer">useIntersectionObserver</a>
 -Used for checking if a document object is shown on screen. If it does, we fetch new data.
