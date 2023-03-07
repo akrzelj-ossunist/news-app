@@ -12,7 +12,7 @@ Prerequisite: Node Package Manager (npm) download can be found <a href="https://
 
 2. `npm install` to install all required dependencies.
 
-3. For this app to work you have to renam .env.example to .env file. Inside you have to paste api key that you can get only by creating account <a href="https://newsapi.org">here</a>.
+3. For this app to work you have to rename .env.example to .env file. Inside you have to paste api key that you can get only by creating account <a href="https://newsapi.org">here</a>.
 
 4. `npm start` to start the application. As you make changes the website will be automatically reloaded.
 
