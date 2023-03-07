@@ -7,7 +7,9 @@ import { IArticle } from "../utils/interface";
 
 const News: React.FC = () => {
   const [panel, setPanel] = useState<string>("featured");
-  const [favNews, setFavNews] = useState<Array<IArticle>>([]);
+  const [favNews, setFavNews] = useState<Array<IArticle>>(
+    JSON.parse(localStorage.getItem("favorites")!) || []
+  );
 
   const activeDesign = {
     background: "rgba(187, 30, 30, 0.1)",

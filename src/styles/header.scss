@@ -33,6 +33,9 @@
             top: 5px;
             left: 15px;
         }
+        .phone-input{
+            display: none;
+        }
         input{  
             border: none;
             width: 100%;
@@ -82,9 +85,18 @@
       .search{
         width: 293px;
         padding: 15px 10px 15px 40px;
+        .phone-input{
+            display: block;
+        }
+        input{
+            display: none;
+        }
         .search-icon{
             margin-top: 7px;
         }
       }
+    }
+    .search-button{
+        display: none;
     }
   }

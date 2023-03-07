@@ -36,12 +36,17 @@ const PrintNews: React.FC<{
             onClick={() => {
               favNews.splice(favIndex, 1);
               setFavNews([...favNews]);
+              localStorage.setItem("favorites", JSON.stringify(favNews));
             }}
           />
         ) : (
           <IconUncheckedFavorite
             onClick={() => {
               setFavNews([...favNews, article]);
+              localStorage.setItem(
+                "favorites",
+                JSON.stringify([...favNews, article])
+              );
             }}
           />
         )}

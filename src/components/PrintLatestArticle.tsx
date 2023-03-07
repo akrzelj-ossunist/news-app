@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { useIntersectionObserver } from "usehooks-ts";
 
 const PrintLatestArticle: React.FC<{
@@ -29,7 +30,9 @@ const PrintLatestArticle: React.FC<{
                 article.publishedAt.indexOf("T") + 6
               )}
             </label>
-            <p>{article.title}</p>
+            <Link to={article.url} className="latest-title" target="_blank">
+              {article.title}
+            </Link>
           </div>
         );
       })}
