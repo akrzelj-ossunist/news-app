@@ -20,6 +20,7 @@ const PrintLatestArticle: React.FC<{
           <div
             key={index}
             className="latest-article"
+            style={{ flexDirection: "column" }}
             ref={latestNewsData.length - 1 === index ? ref : null}
           >
             <label>

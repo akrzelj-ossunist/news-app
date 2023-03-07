@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/navigation.scss";
 
 const Navigation: React.FC = () => {
-  const [showNav, setShowNav] = useState(true);
+  const [showNav, setShowNav] = useState<boolean>(true);
   return (
     <div
       className="nav-bar"

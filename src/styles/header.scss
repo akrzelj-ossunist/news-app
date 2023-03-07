@@ -1,3 +1,5 @@
+@use "index";
+
 .header{
     display: flex;
     width: 100%;
@@ -11,7 +13,7 @@
         display: flex;
         margin-right: 43px;
         p:first-child{
-            color: #BB1E1E;
+            color: index.$primary-color;
         }
     }
     .ham-icon{
@@ -51,12 +53,11 @@
     height: 40px;
     border-radius: 6px;
     border: none;
-    background: #BB1E1E;
+    background: index.$primary-color;
     color: white;
     text-decoration: none;
-    font-weight: 900;
     font-size: 15px;
-    font-family: "Inter";
+    font-family: index.$font-bold;
     display: flex;
     justify-content: center;
     align-items: center;

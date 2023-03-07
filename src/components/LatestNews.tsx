@@ -1,7 +1,8 @@
 import useGetLatestNewsQuery from "../services/getLatestNews";
 import "../styles/latestNews.scss";
 import PrintLatestArticle from "./PrintLatestArticle";
-import { concatArrayOfArray } from "../utility/customFuncions";
+import { concatArrayOfArray } from "../utils/customFuncions";
+import LoadingSpinner from "./LoadingSpinner";
 
 const LatestNews: React.FC = () => {
   const {
@@ -14,15 +15,7 @@ const LatestNews: React.FC = () => {
   return (
     <>
       <div className="latest-news">
-        <div
-          className="latest-article"
-          style={{
-            display: "flex",
-            position: "sticky",
-            top: "-15px",
-            background: "white",
-          }}
-        >
+        <div className="latest-article">
           <div className="circle">
             <span className="large-circle"></span>
             <span className="middle-circle"></span>
@@ -31,7 +24,7 @@ const LatestNews: React.FC = () => {
         </div>
         <div className="latest-articles">
           {isLoading ? (
-            <p>Loading...</p>
+            <LoadingSpinner />
           ) : (
             <PrintLatestArticle
               latestNewsData={concatArrayOfArray(latestNewsData?.pages!)}

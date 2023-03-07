@@ -5,10 +5,9 @@ import News from "./components/News";
 import { useState } from "react";
 
 const Home: React.FC = () => {
-  const [showDropNav, setShowDropNav] = useState(false);
-
+  const [showDropNav, setShowDropNav] = useState<boolean>(false);
   return (
-    <div style={showDropNav ? { overflow: "hidden" } : {}}>
+    <div>
       <Header showDropNav={showDropNav} setShowDropNav={setShowDropNav} />
       <div className="content">
         <div className="hide-phone">

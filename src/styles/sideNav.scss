@@ -1,27 +1,36 @@
+@use "index";
+
 .side-nav{
     cursor: pointer;
     margin-right: 24px;
     .prop{
-        text-decoration: none;
         width: 63px;
         height: 63px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: "#1D1D1B";
         transition: ease-in-out 300ms;
         border-radius: 8px;
+        background: "inherit";
+        opacity: 0.6;
+        color: index.$secondary-color;
+        text-decoration: none;
+        .prop-name{
+            cursor: pointer;
+            font-family: index.$font-semi;
+            font-size: 10px;
+            margin-top: 4px;
+        }
     }
-    label{
-        font-weight: 600;
-        font-family: "Inter";
-        font-size: 10px;
-        margin-top: "4px";
-        cursor: pointer;
-        transition: ease-in-out 300ms;
+    .active{
+        color: index.$primary-color;
+        background: white;
+        opacity: 1;
+        box-shadow: 0px 6px 36px rgba(0, 0, 0, 0.16);
     }
 }
+
 @media (max-width: 375px) {
     .side-nav{
         display: flex;

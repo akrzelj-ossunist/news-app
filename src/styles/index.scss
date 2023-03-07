@@ -1,3 +1,24 @@
+$font-bold: InterV_Bold;
+$font-medium: InterV_Medium;
+$font-semi: InterV_Semi;
+$primary-color: #BB1E1E;
+$secondary-color: #1D1D1B;
+
+@font-face {
+    font-family: InterV_Bold;
+    src: url("../../public/Inter/Inter-Bold.otf");
+}
+
+@font-face {
+    font-family: InterV_Medium;
+    src: url("../../public/Inter/Inter-Medium.otf");
+}
+
+@font-face {
+    font-family: InterV_Semi;
+    src: url("../../public/Inter/Inter-SemiBold.otf");
+}
+
 body{
     margin: 0;
     background: #F2F2F2;

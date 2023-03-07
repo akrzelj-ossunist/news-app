@@ -87,35 +87,11 @@ const SideNav: React.FC = () => {
   return (
     <div className="side-nav">
       {sideNavProps.map((prop) => {
-        const design =
-          location.pathname === prop.href
-            ? {
-                color: "#BB1E1E",
-                background: "white",
-                opacity: 1,
-                boxShadow: "0px 6px 36px rgba(0, 0, 0, 0.16)",
-              }
-            : {
-                color: "#1D1D1B",
-                background: "inherit",
-                opacity: 0.6,
-                boxShadow: "none",
-              };
+        const design = location.pathname === prop.href ? "prop active" : "prop";
         return (
-          <Link
-            to={prop.href}
-            key={prop.name}
-            className="prop"
-            style={{
-              background: design.background,
-              opacity: design.opacity,
-              boxShadow: design.boxShadow,
-            }}
-          >
+          <Link to={prop.href} key={prop.name} className={design}>
             {prop.image}
-            <label style={{ color: design.color, opacity: design.opacity }}>
-              {prop.name}
-            </label>
+            <label className="prop-name">{prop.name}</label>
           </Link>
         );
       })}
