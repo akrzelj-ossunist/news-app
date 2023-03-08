@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import ExitIcon from "../assets/ExitIcon";
 import SearchIcon from "../assets/SearchIcon";
 import SideNav from "./SideNav";
@@ -28,13 +27,6 @@ const DropNav: React.FC<{
           placeholder="Search news"
           onChange={(el) => setSearch(el.target.value)}
         />
-        <Link
-          to={`/search?q=${search}`}
-          className="search-button"
-          onClick={() => setShowDropNav(false)}
-        >
-          SEARCH
-        </Link>
       </div>
       <div onClick={() => setShowDropNav(false)}>
         <SideNav />

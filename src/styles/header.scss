@@ -45,26 +45,27 @@
         input:focus{
             outline: none;
         }
+        .search-button{
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            margin: 5px;
+            width: 95px;
+            height: 40px;
+            border-radius: 6px;
+            border: none;
+            background: index.$primary-color;
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-family: index.$font-bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
-.search-button{
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    margin: 5px;
-    width: 95px;
-    height: 40px;
-    border-radius: 6px;
-    border: none;
-    background: index.$primary-color;
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-    font-family: index.$font-bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 @media (max-width: 375px) {
     .header {
@@ -94,9 +95,9 @@
         .search-icon{
             margin-top: 7px;
         }
+        .search-button{
+            display: none;
+        }
       }
-    }
-    .search-button{
-        display: none;
     }
   }

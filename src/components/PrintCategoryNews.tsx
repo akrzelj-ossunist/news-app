@@ -3,6 +3,7 @@ import useGetNewsQuery from "../services/getNews";
 import { IArticle } from "../utils/interface";
 import LoadingSpinner from "./LoadingSpinner";
 import PrintFavorites from "./PrintFavorites";
+import PrintHomeNews from "./PrintHomeNews";
 import PrintNews from "./PrintNews";
 
 const PrintCategoryNews: React.FC<{
@@ -11,9 +12,26 @@ const PrintCategoryNews: React.FC<{
 }> = ({ favorites, setFavorites }) => {
   const category = useLocation().pathname;
   const { data: newsData, isLoading } = useGetNewsQuery(category);
+  const categories = [
+    "/general",
+    "/business",
+    "/health",
+    "/science",
+    "/sports",
+    "/technology",
+  ];
   return (
     <>
-      {category === "/favorites" ? (
+      {category === "/" ? (
+        categories.map((cat) => (
+          <PrintHomeNews
+            key={cat}
+            favorites={favorites}
+            setFavorites={setFavorites}
+            category={cat}
+          />
+        ))
+      ) : category === "/favorites" ? (
         <PrintFavorites favorites={favorites} setFavNews={setFavorites} />
       ) : isLoading ? (
         <LoadingSpinner />
