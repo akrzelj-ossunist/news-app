@@ -4,9 +4,11 @@ import { useState } from "react";
 import PrintCategoryNews from "./PrintCategoryNews";
 import PrintSearchNews from "./PrintSearchNews";
 import { IArticle } from "../utils/interface";
+import { useLocation } from "react-router-dom";
 
 const News: React.FC = () => {
   const [panel, setPanel] = useState<string>("featured");
+  const location = useLocation();
   const [favNews, setFavNews] = useState<Array<IArticle>>(
     JSON.parse(localStorage.getItem("favorites")!) || []
   );
@@ -39,7 +41,9 @@ const News: React.FC = () => {
         <div className="display-desktop">
           <LatestNews />
           <PrintCategoryNews favorites={favNews} setFavorites={setFavNews} />
-          <PrintSearchNews favorites={favNews} setFavorites={setFavNews} />
+          {location.search !== "" && (
+            <PrintSearchNews favorites={favNews} setFavorites={setFavNews} />
+          )}
         </div>
       </div>
 
@@ -49,7 +53,9 @@ const News: React.FC = () => {
         ) : (
           <>
             <PrintCategoryNews favorites={favNews} setFavorites={setFavNews} />
-            <PrintSearchNews favorites={favNews} setFavorites={setFavNews} />
+            {location.search !== "" && (
+              <PrintSearchNews favorites={favNews} setFavorites={setFavNews} />
+            )}
           </>
         )}
       </div>

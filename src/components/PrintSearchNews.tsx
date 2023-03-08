@@ -9,7 +9,7 @@ const PrintSearchNews: React.FC<{
 }> = ({ favorites, setFavorites }) => {
   const search = useLocation().search;
   const { data: newsByTitleData, isLoading } = useGetNewsByTitleQuery(
-    search.substring(search.indexOf("=") + 1) || "đ"
+    search.substring(search.indexOf("=") + 1)
   );
   return (
     <>

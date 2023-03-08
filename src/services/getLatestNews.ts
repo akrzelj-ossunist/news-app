@@ -8,7 +8,7 @@ const getLatestNews = async (pageParam: number) => {
         const resp = await axios.get<INews<IArticle>>(link,{
             params: {
                 apiKey: import.meta.env.VITE_APP_MY_API_KEY,
-                q: "a",
+                q: "*",
                 page: pageParam,
                 pageSize: 25,
                 language: "en",
