@@ -3,10 +3,10 @@
 .latest-news{
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 40px;
-    right: 15px;
+    position: relative;
     width: 291px;
+    margin-top: -275px;
+    margin-right: 14px;
     height: 515px;
     border-radius: 8px;
     padding: 0 15px 15px 15px;

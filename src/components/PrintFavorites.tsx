@@ -13,7 +13,6 @@ const PrintFavorites: React.FC<{
             key={index}
             article={article}
             setFavNews={setFavNews}
-            index={index}
             favNews={favorites}
           />
         );
