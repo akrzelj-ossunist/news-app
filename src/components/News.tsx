@@ -39,7 +39,6 @@ const News: React.FC = () => {
           </p>
         </div>
         <div className="display-desktop">
-          <LatestNews />
           <PrintCategoryNews favorites={favNews} setFavorites={setFavNews} />
           {location.search !== "" && (
             <PrintSearchNews favorites={favNews} setFavorites={setFavNews} />

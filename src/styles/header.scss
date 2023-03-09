@@ -9,9 +9,9 @@
     font-weight: 900;
     font-size: 32px;
     font-family: "Inter";
+    flex-wrap: wrap;
     .logo{
         display: flex;
-        margin-right: 43px;
         p:first-child{
             color: index.$primary-color;
         }
@@ -22,7 +22,8 @@
     .search{
         display: flex;
         align-items: center;
-        width: 575px;
+        width: 53%;
+        margin-left: 43px;
         position: relative;
         box-shadow: 0px 1px 2px -1px #C8CAD1;
         background: white;
@@ -82,6 +83,7 @@
       }
       .search{
         width: 293px;
+        margin-left: 0;
         padding: 15px 10px 15px 40px;
         .search-icon{
             margin-top: 7px;
