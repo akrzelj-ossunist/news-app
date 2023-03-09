@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SearchIcon from "../assets/SearchIcon";
 import "../styles/header.scss";
 import HamIcon from "../assets/HamIcon";
@@ -12,11 +12,11 @@ const Header: React.FC<{
   setShowDropNav: (val: boolean) => void;
 }> = ({ showDropNav, setShowDropNav }) => {
   const [search, setSearch] = useState<string>("");
-  const [phoneSearch, setPhoneSearch] = useState<string>("");
-  const debouncedVal = useDebounce(phoneSearch, 250);
+  const debouncedVal = useDebounce(search, 500);
   const navigate = useNavigate();
   useEffect(() => {
-    if (debouncedVal) navigate(`/search?q=${debouncedVal}`);
+    if (debouncedVal && window.innerWidth === 375)
+      navigate(`/search?q=${debouncedVal}`);
   }, [debouncedVal]);
   return (
     <>
@@ -40,13 +40,6 @@ const Header: React.FC<{
             type="text"
             placeholder="Search news"
           />
-          <input
-            className="phone-input"
-            value={phoneSearch}
-            onChange={(el) => setPhoneSearch(el.target.value)}
-            type="text"
-            placeholder="Search news"
-          />
           <Link to={`/search?q=${search}`} className="search-button">
             SEARCH
           </Link>
@@ -54,8 +47,8 @@ const Header: React.FC<{
       </div>
       <DropNav
         showDropNav={showDropNav}
-        search={phoneSearch}
-        setSearch={setPhoneSearch}
+        search={search}
+        setSearch={setSearch}
         setShowDropNav={setShowDropNav}
       />
     </>

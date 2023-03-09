@@ -10,3 +10,10 @@ export const concatArrayOfArray = (arr: any[]): any[] => {
     }
     return -1
   }
+
+  export const getTime = (time: string): string => {
+    return time.substring(
+      time.indexOf("T") + 1,
+      time.indexOf("T") + 6
+    )
+  }

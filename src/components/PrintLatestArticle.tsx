@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useIntersectionObserver } from "usehooks-ts";
+import { getTime } from "../utils/customFuncions";
 
 const PrintLatestArticle: React.FC<{
   latestNewsData: any;
@@ -24,12 +25,7 @@ const PrintLatestArticle: React.FC<{
             style={{ flexDirection: "column" }}
             ref={latestNewsData.length - 1 === index ? ref : null}
           >
-            <label>
-              {article.publishedAt.substring(
-                article.publishedAt.indexOf("T") + 1,
-                article.publishedAt.indexOf("T") + 6
-              )}
-            </label>
+            <label>{getTime(article.publishedAt)}</label>
             <Link to={article.url} className="latest-title" target="_blank">
               {article.title}
             </Link>
