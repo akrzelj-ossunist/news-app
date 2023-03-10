@@ -13,13 +13,6 @@ const News: React.FC = () => {
     JSON.parse(localStorage.getItem("favorites")!) || []
   );
 
-  const activeDesign = {
-    background: "rgba(187, 30, 30, 0.1)",
-    color: "#BB1E1E",
-    padding: "10px 16px 10px 16px",
-    borderRadius: "20px",
-  };
-
   return (
     <>
       <div className="news-content">
@@ -27,13 +20,13 @@ const News: React.FC = () => {
         <div className="phone-news-toggle">
           <p
             onClick={() => setPanel("featured")}
-            style={panel === "featured" ? activeDesign : {}}
+            className={panel === "featured" ? "active-panel" : ""}
           >
             Featured
           </p>
           <p
             onClick={() => setPanel("latest")}
-            style={panel === "latest" ? activeDesign : {}}
+            className={panel === "latest" ? "active-panel" : ""}
           >
             Latest
           </p>

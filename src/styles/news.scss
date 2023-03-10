@@ -118,6 +118,12 @@
         margin: 0;
         p{
             margin: 0 8px 0 8px;
+            &.active-panel{
+                background: rgba(187, 30, 30, 0.1);
+                color: #BB1E1E;
+                padding: 10px 16px 10px 16px;
+                border-radius: 20px;
+            }
         }
     }
     .article-section{

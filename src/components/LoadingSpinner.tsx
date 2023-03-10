@@ -1,9 +1,11 @@
 import "../styles/spinner.scss";
 
-export default function LoadingSpinner() {
+const LoadingSpinner: React.FC<{ className?: string }> = ({ className }) => {
   return (
-    <div className="spinner-container">
+    <div className={`spinner-container ${className}`}>
       <div className="loading-spinner"></div>
     </div>
   );
-}
+};
+
+export default LoadingSpinner;

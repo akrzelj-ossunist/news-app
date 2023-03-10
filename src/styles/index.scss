@@ -23,6 +23,14 @@ body{
     margin: 0;
     background: #F2F2F2;
     overflow-x: hidden;
+    &::-webkit-scrollbar{
+        width: 8px;
+        height: 1px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: gray;
+        border-radius: 6px;
+      }
 }
 .layout{
     display: flex;

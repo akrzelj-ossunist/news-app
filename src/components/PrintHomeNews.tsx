@@ -1,5 +1,6 @@
 import useGetNewsQuery from "../services/getNews";
 import { IArticle } from "../utils/interface";
+import LoadingSpinner from "./LoadingSpinner";
 import PrintNews from "./PrintNews";
 
 const PrintHomeNews: React.FC<{
@@ -14,7 +15,7 @@ const PrintHomeNews: React.FC<{
   return (
     <div>
       {isLoading ? (
-        <></>
+        <LoadingSpinner className="load-articles" />
       ) : (
         <>
           <p className="category-title">{category.substring(1)}</p>

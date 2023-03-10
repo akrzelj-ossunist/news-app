@@ -25,18 +25,16 @@
             margin-bottom: 4px;
             color: #1E71BB;
         }
+        &::-webkit-scrollbar{
+            background: white;
+            width: 4px;
+            height: 1px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+          }
     }
-    .latest-articles::-webkit-scrollbar{
-        background: white;
-        width: 4px;
-        height: 1px;
-    }
-    .latest-articles::-webkit-scrollbar-thumb {
-        width: 4px;
-        height: 2px;
-        background: gray;
-        border-radius: 10px;
-      }
     .latest-article{
         padding: 13px 0 13px 0;
         border-bottom: 1px solid #F4F5F8;

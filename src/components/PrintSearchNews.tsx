@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import useGetNewsByTitleQuery from "../services/getNewsByTitle";
 import { IArticle } from "../utils/interface";
+import LoadingSpinner from "./LoadingSpinner";
 import PrintNews from "./PrintNews";
 
 const PrintSearchNews: React.FC<{
@@ -14,7 +15,7 @@ const PrintSearchNews: React.FC<{
   return (
     <>
       {isLoading ? (
-        <></>
+        <LoadingSpinner className="load-articles" />
       ) : (
         newsByTitleData?.articles.map((article: any, index: number) => (
           <PrintNews
