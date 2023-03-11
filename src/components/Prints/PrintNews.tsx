@@ -1,13 +1,13 @@
 import {
   IconCheckedFavorite,
   IconUncheckedFavorite,
-} from "../assets/FavoriteIcon";
-import "../styles/news.scss";
-import missing from "../assets/Missing-image.png";
-import { isInArray } from "../utils/customFuncions";
-import { IArticle } from "../utils/interface";
+} from "../../assets/FavoriteIcon";
+import "../../styles/news.scss";
+import missing from "../../assets/Missing-image.png";
+import { isInArray } from "../../utils/customFuncions";
+import { IArticle } from "../../utils/interface";
 import { Link } from "react-router-dom";
-import LatestNews from "./LatestNews";
+import LatestNews from "../LatestNews";
 
 const PrintNews: React.FC<{
   article: IArticle;

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Home from "./App";
+import App from "./App";
 import Layout from "./components/Layout";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <Layout>
-          <Home />
+          <App />
         </Layout>
       </QueryClientProvider>
     </BrowserRouter>

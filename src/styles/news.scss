@@ -60,7 +60,10 @@
         cursor: pointer;
         display: flex;
         justify-content: end;
-        margin: 10px 10px 0 0;
+        margin: 5px 10px 0 0;
+        svg:active{
+            scale: 1.4;
+        }
     }
     img{
         width: 100%;

@@ -1,6 +1,6 @@
-import useGetNewsQuery from "../services/getNews";
-import { IArticle } from "../utils/interface";
-import LoadingSpinner from "./LoadingSpinner";
+import useGetNewsQuery from "../../services/getNews";
+import { IArticle } from "../../utils/interface";
+import LoadingSpinner from "../LoadingSpinner";
 import PrintNews from "./PrintNews";
 
 const PrintHomeNews: React.FC<{
@@ -10,7 +10,7 @@ const PrintHomeNews: React.FC<{
 }> = ({ favorites, setFavorites, category }) => {
   const { data: newsData, isLoading } = useGetNewsQuery(
     category,
-    category === "/general" ? 7 : 6
+    category === "general" ? 7 : 6
   );
   return (
     <div>
@@ -18,14 +18,14 @@ const PrintHomeNews: React.FC<{
         <LoadingSpinner className="load-articles" />
       ) : (
         <>
-          <p className="category-title">{category.substring(1)}</p>
+          <p className="category-title">{category}</p>
           <div className="article-section">
             {newsData?.articles.map((article: any, index: any) => {
               return (
                 <PrintNews
                   key={index}
                   article={article}
-                  index={category === "/general" ? index : 0}
+                  index={category === "general" ? index : 0}
                   setFavNews={setFavorites}
                   favNews={favorites}
                 />

@@ -22,8 +22,8 @@ export function IconUncheckedFavorite(props: React.SVGProps<SVGSVGElement>) {
     <svg
       viewBox="0 0 24 24"
       fill="currentColor"
-      height="1.2em"
-      width="1.2em"
+      height="1.3em"
+      width="1.3em"
       {...props}
     >
       <path

@@ -1,4 +1,4 @@
-import { IArticle } from "../utils/interface";
+import { IArticle } from "../../utils/interface";
 import PrintNews from "./PrintNews";
 
 const PrintFavorites: React.FC<{

@@ -7,7 +7,7 @@ const getNews = async (category: string, perPage?: number) => {
     try {
         const resp = await axios.get<INews<IArticle>>(link,{
             params: {
-                category: category.substring(1),
+                category: category,
                 country: "us",
                 pageSize: perPage || 35,
                 apiKey: import.meta.env.VITE_APP_MY_API_KEY,

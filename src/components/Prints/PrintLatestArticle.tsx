@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useIntersectionObserver } from "usehooks-ts";
-import { getTime } from "../utils/customFuncions";
+import { getTime } from "../../utils/customFuncions";
 
 const PrintLatestArticle: React.FC<{
   latestNewsData: any;

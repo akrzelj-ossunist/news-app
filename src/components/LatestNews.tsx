@@ -1,6 +1,6 @@
 import useGetLatestNewsQuery from "../services/getLatestNews";
 import "../styles/latestNews.scss";
-import PrintLatestArticle from "./PrintLatestArticle";
+import PrintLatestArticle from "./Prints/PrintLatestArticle";
 import { concatArrayOfArray } from "../utils/customFuncions";
 import LoadingSpinner from "./LoadingSpinner";
 

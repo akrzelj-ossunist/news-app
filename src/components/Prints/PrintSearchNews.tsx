@@ -1,7 +1,7 @@
-import { useLocation } from "react-router-dom";
-import useGetNewsByTitleQuery from "../services/getNewsByTitle";
-import { IArticle } from "../utils/interface";
-import LoadingSpinner from "./LoadingSpinner";
+import { useLocation, useSearchParams } from "react-router-dom";
+import useGetNewsByTitleQuery from "../../services/getNewsByTitle";
+import { IArticle } from "../../utils/interface";
+import LoadingSpinner from "../LoadingSpinner";
 import PrintNews from "./PrintNews";
 
 const PrintSearchNews: React.FC<{
