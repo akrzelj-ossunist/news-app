@@ -34,7 +34,10 @@ const PrintNews: React.FC<{
             ? article.title.substring(0, 65) + "..."
             : article.title}
         </Link>
-        <p className="article-author">{article.author}</p>
+        <p className="article-author">
+          {article.author?.substring(0, article.author.indexOf(",")) ||
+            article.author}
+        </p>
         <div className="fav-icon">
           {favIndex >= 0 ? (
             <IconCheckedFavorite

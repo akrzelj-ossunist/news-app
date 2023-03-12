@@ -6,6 +6,7 @@ import { IArticle } from "./utils/interface";
 import { useRoutes } from "react-router-dom";
 import HomeNews from "./components/HomeNews";
 import LatestNews from "./components/LatestNews";
+import NotFound from "./components/NotFound";
 
 const App: React.FC = () => {
   const [panel, setPanel] = useState<string>("featured");
@@ -31,7 +32,7 @@ const App: React.FC = () => {
     },
     {
       path: "*",
-      element: <h1>Not found</h1>,
+      element: <NotFound message="404" />,
     },
   ]);
   return (

@@ -2,6 +2,7 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import useGetNewsByTitleQuery from "../../services/getNewsByTitle";
 import { IArticle } from "../../utils/interface";
 import LoadingSpinner from "../LoadingSpinner";
+import NotFound from "../NotFound";
 import PrintNews from "./PrintNews";
 
 const PrintSearchNews: React.FC<{
@@ -16,6 +17,8 @@ const PrintSearchNews: React.FC<{
     <>
       {isLoading ? (
         <LoadingSpinner className="load-articles" />
+      ) : newsByTitleData?.articles.length === 0 ? (
+        <NotFound message="search" />
       ) : (
         newsByTitleData?.articles.map((article: any, index: number) => (
           <PrintNews

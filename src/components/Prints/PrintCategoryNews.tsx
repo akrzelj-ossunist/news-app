@@ -16,7 +16,7 @@ const PrintCategoryNews: React.FC<{
       {categoryId === "favorites" ? (
         <PrintFavorites favorites={favorites} setFavNews={setFavorites} />
       ) : isLoading ? (
-        <LoadingSpinner />
+        <LoadingSpinner className="load-articles" />
       ) : (
         newsData?.articles.map((article: any, index: any) => (
           <PrintNews

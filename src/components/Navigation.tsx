@@ -6,9 +6,7 @@ const Navigation: React.FC = () => {
   return (
     <div
       className="nav-bar"
-      style={
-        showNav ? {} : { marginTop: "-60px", transition: "ease-in-out 500ms" }
-      }
+      style={showNav ? {} : { marginTop: "-60px", opacity: 0 }}
     >
       <div className="nav-text">
         <p className="first-text">Make MyNews your homepage</p>

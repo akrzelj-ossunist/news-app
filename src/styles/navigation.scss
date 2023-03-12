@@ -6,6 +6,7 @@
     justify-content: space-evenly;
     background: index.$primary-color;
     align-items: center;
+    transition: ease-in-out 500ms;
     .nav-text{
         color: white;
         display: flex;
