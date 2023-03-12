@@ -18,7 +18,9 @@ const PrintNews: React.FC<{
   const favIndex = isInArray(favNews, article.title);
   return (
     <>
-      {index === 4 && window.innerWidth > 375 && <LatestNews />}
+      {index === 4 && document.documentElement.clientWidth > 375 && (
+        <LatestNews />
+      )}
       <div className="article" style={index === 2 ? { marginLeft: "1px" } : {}}>
         <img
           src={article.urlToImage || missing}

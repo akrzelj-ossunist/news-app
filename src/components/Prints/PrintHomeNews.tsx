@@ -14,7 +14,7 @@ const PrintHomeNews: React.FC<{
   );
   return (
     <div>
-      {isLoading && window === undefined ? (
+      {isLoading ? (
         <LoadingSpinner className="load-articles" />
       ) : (
         <>
