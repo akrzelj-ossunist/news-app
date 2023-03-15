@@ -11,7 +11,7 @@ const DropNav: React.FC<{
   return (
     <div
       className="drop-nav"
-      style={showDropNav ? { translate: "0% 0%" } : { translate: "0% -100%" }}
+      style={showDropNav ? { translate: "0 0" } : { translate: "0 -100vh" }}
     >
       <div className="logo">
         <p>My</p>
