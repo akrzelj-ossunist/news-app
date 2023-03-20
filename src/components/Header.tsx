@@ -15,7 +15,7 @@ const Header: React.FC<{
   const debouncedVal = useDebounce(search, 500);
   const navigate = useNavigate();
   useEffect(() => {
-    if (debouncedVal && window.innerWidth === 375)
+    if (debouncedVal && window.innerWidth <= 375)
       navigate(`/search?q=${debouncedVal}`);
   }, [debouncedVal]);
   return (
